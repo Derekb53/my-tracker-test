@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
     color: #4a3f35;
     background: #f8f1e9;
+    -webkit-font-smoothing: antialiased; /* Verbeterde tekstweergave */
 }
 
 /* Main Navigation */
@@ -50,13 +51,15 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus {
     color: #c07f7f;
+    outline: none; /* Toegankelijkheid: focus-stijl toevoegen */
 }
 
 /* Hero Section */
 .hero {
-    background: url('floral-bg.jpg') center/cover no-repeat;
+    background: url('floral-bg.webp') center/cover no-repeat; /* WebP voor snellere laadtijd */
     padding: 120px 20px;
     text-align: center;
     position: relative;
@@ -88,16 +91,18 @@ body {
     transition: background 0.3s ease, transform 0.2s;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus {
     background: #d89ea0;
     transform: scale(1.05);
+    outline: none;
 }
 
 .floral-decor {
     position: absolute;
     width: 150px;
     height: 150px;
-    background: url('floral-accent.png') no-repeat;
+    background: url('floral-accent.webp') no-repeat; /* WebP */
     opacity: 0.7;
 }
 
@@ -119,7 +124,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    background: url('floral-border.png') top center / 100px repeat-x;
+    background: url('floral-border.webp') top center / 100px repeat-x; /* WebP */
 }
 
 .why-section h2 {
@@ -150,7 +155,8 @@ body {
     transition: transform 0.3s;
 }
 
-.icon:hover {
+.icon:hover,
+.icon:focus {
     transform: scale(1.1);
 }
 
@@ -182,7 +188,8 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s;
 }
 
-.solution-card:hover {
+.solution-card:hover,
+.solution-card:focus {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(200, 167, 142, 0.2);
 }
@@ -207,7 +214,8 @@ body {
     transition: color 0.3s;
 }
 
-.card-cta:hover {
+.card-cta:hover,
+.card-cta:focus {
     color: #d89ea0;
 }
 
@@ -300,7 +308,8 @@ body {
     transition: color 0.3s;
 }
 
-.post-cta:hover {
+.post-cta:hover,
+.post-cta:focus {
     color: #d89ea0;
 }
 
@@ -366,7 +375,8 @@ body {
     gap: 15px;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     padding: 12px;
     border: 1px solid #e8d5c4;
     border-radius: 10px;
@@ -396,7 +406,8 @@ body {
     transition: color 0.3s;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a:focus {
     color: #c07f7f;
 }
 
@@ -410,4 +421,53 @@ body {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    .hero-content p {
+        font-size: 18px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .solutions-grid,
+    .blog-grid {
+        grid-template-columns: 1fr; /* Stack items op mobiel */
+    }
+    .about-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .icon-row {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 15px;
+    }
+    .cta-button {
+        padding: 12px 24px;
+    }
+    .blog-post {
+        min-height: 400px;
+    }
+}
+
+/* Optimize Google Fonts */
+@font-face {
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap') format('woff2');
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap') format('woff2');
 }
